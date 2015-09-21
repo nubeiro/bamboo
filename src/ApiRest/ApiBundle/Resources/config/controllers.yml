@@ -1,0 +1,19 @@
+services:
+
+    #
+    # Controllers
+    #
+
+    api_rest.controller.abstract:
+        class: ApiRest\Api\Controller\Abstracts\AbstractApiController
+        abstract: true
+        arguments:
+            - @elcodi.provider.repository
+            - @elcodi.provider.manager
+            - @request_stack
+            - @api_rest.transformer.entity
+            - @api_rest.configuration
+
+    api_rest.controller.get:
+        class: ApiRest\Api\Controller\GetController
+        parent: api_rest.controller.abstract

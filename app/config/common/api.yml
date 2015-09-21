@@ -1,0 +1,29 @@
+api:
+    route_format: elcodi_api_rest_{entity}_{verb}
+    entities:
+
+        #
+        # Product
+        #
+        products:
+            namespace: Elcodi\Component\Product\Entity\Product
+        variants:
+            namespace: Elcodi\Component\Product\Entity\Variant
+        categories:
+            namespace: Elcodi\Component\Product\Entity\Category
+        manufacturers:
+            namespace: Elcodi\Component\Product\Entity\Manufacturer
+
+        #
+        # User
+        #
+        users:
+            namespace: Elcodi\Component\User\Entity\Customer
+
+        #
+        # Cart
+        #
+        carts:
+            namespace: Elcodi\Component\Cart\Entity\Cart
+        orders:
+            namespace: Elcodi\Component\Cart\Entity\Order

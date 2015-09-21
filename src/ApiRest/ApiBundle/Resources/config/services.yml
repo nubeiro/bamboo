@@ -1,0 +1,28 @@
+services:
+
+    #
+    # Configuration
+    #
+    api_rest.configuration:
+        class: ApiRest\Api\Configuration
+        arguments:
+            - %api_rest.entities_configuration%
+            - %api_rest.route_format%
+
+    #
+    # Route Loader
+    #
+    api_rest.routes_builder:
+        class: ApiRest\Api\Router\RoutesBuilder
+        arguments:
+            - @router
+            - @api_rest.configuration
+
+    api_rest.routes_loader:
+        class: ApiRest\Api\Router\RoutesLoader
+        arguments:
+            - @api_rest.configuration
+            - @api_rest.routes_builder
+        tags:
+            - { name: routing.loader }
+

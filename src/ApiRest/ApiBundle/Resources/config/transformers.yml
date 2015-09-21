@@ -1,0 +1,38 @@
+services:
+
+    #
+    # Mapping transformers
+    #
+    api_rest.mapping_transformer.boolean:
+        class: ApiRest\Api\Transformer\Mapping\BooleanTransformer
+        tags:
+            - { name: api_rest.mapping_transformer }
+
+    api_rest.mapping_transformer.date:
+        class: ApiRest\Api\Transformer\Mapping\DateTransformer
+        tags:
+            - { name: api_rest.mapping_transformer }
+
+    api_rest.mapping_transformer.json_array:
+        class: ApiRest\Api\Transformer\Mapping\JsonArrayTransformer
+        tags:
+            - { name: api_rest.mapping_transformer }
+
+    api_rest.mapping_transformer.simple_array:
+        class: ApiRest\Api\Transformer\Mapping\SimpleArrayTransformer
+        tags:
+            - { name: api_rest.mapping_transformer }
+
+    api_rest.mapping_transformer_chain:
+        class: ApiRest\Api\Transformer\MappingTransformerChain
+
+    #
+    # Entity Transformer
+    #
+    api_rest.transformer.entity:
+        class: ApiRest\Api\Transformer\EntityTransformer
+        arguments:
+            - @elcodi.provider.manager
+            - @api_rest.configuration
+            - @api_rest.routes_builder
+            - @api_rest.mapping_transformer_chain
