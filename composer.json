@@ -72,6 +72,7 @@
         "mmoreram/extractor": "^1.1.1",
         "mmoreram/cache-flush-bundle": "0.1.2",
         "mmoreram/http-headers-bundle": "1.0.0",
+        "simple-bus/symfony-bridge": "^4.1.1",
 
         "elcodi/elcodi": "^1.0"
     },

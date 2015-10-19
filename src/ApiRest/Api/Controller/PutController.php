@@ -18,11 +18,34 @@
 namespace ApiRest\Api\Controller;
 
 use ApiRest\Api\Controller\Abstracts\AbstractApiController;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class PutController
  */
 class PutController extends AbstractApiController
 {
+    /**
+     * Do action
+     *
+     * @param Request $request  Request
+     * @param string  $entityId Entity identifier
+     */
+    protected function doOneAction(
+        Request $request,
+        $entityId
+    )
+    {
+        // TODO: Implement doOneAction() method.
+    }
 
+    /**
+     * Do bulk action
+     *
+     * @param Request $request Request
+     */
+    protected function doBulkAction(Request $request)
+    {
+        // TODO: Implement doBulkAction() method.
+    }
 }

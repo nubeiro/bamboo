@@ -17,6 +17,8 @@
 
 namespace ApiRest\Api\Controller;
 
+use ApiRest\Api\Command\GetManyEntities;
+use ApiRest\Api\Command\GetOneEntity;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 use ApiRest\Api\Controller\Abstracts\AbstractApiController;
@@ -30,11 +32,54 @@ class GetController extends AbstractApiController
     /**
      * Do action
      *
+     * @param Request $request  Request
+     * @param string  $entityId Entity identifier
+     */
+    protected function doOneAction(
+        Request $request,
+        $entityId
+    )
+    {
+        $entityNamespace = $request
+            ->attributes
+            ->get('_entitynamespace');
+
+        $this
+            ->getMessageBus()
+            ->handle(new GetOneEntity(
+                $entityNamespace,
+                $entityId
+            ));
+    }
+
+    /**
+     * Do bulk action
+     *
+     * @param Request $request Request
+     *
+     * @return array Response data
+     */
+    protected function doBulkAction(Request $request)
+    {
+        $entityNamespace = $request
+            ->attributes
+            ->get('_entitynamespace');
+
+        $this
+            ->getMessageBus()
+            ->handle(new GetManyEntities(
+                $entityNamespace
+            ));
+    }
+
+    /**
+     * Do action
+     *
      * @param Request $request Request
      * @param object  $entity  Valid entity instance
      *
      * @return array Response data
-     */
+     *
     protected function doOneAction(
         Request $request,
         $entity
@@ -53,7 +98,7 @@ class GetController extends AbstractApiController
      * @param Request $request Request
      *
      * @return array Response data
-     */
+     *
     protected function doBulkAction(Request $request)
     {
         $sort = $request
@@ -110,5 +155,5 @@ class GetController extends AbstractApiController
         return new JsonResponse([
             'data' => $entitiesStructure
         ], 200);
-    }
+    }*/
 }

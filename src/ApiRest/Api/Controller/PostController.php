@@ -29,28 +29,24 @@ class PostController extends AbstractApiController
     /**
      * Do action
      *
-     * @param Request $request Request
-     * @param object $entity Valid entity instance
-     *
-     * @return array Response data
+     * @param Request $request  Request
+     * @param string  $entityId Entity identifier
      */
     protected function doOneAction(
         Request $request,
-        $entity
+        $entityId
     )
     {
-        return new JsonResponse([], 405);
+        // TODO: Implement doOneAction() method.
     }
 
     /**
      * Do bulk action
      *
      * @param Request $request Request
-     *
-     * @return array Response data
      */
     protected function doBulkAction(Request $request)
     {
-
+        // TODO: Implement doBulkAction() method.
     }
 }

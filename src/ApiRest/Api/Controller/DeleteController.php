@@ -29,11 +29,36 @@ class DeleteController extends AbstractApiController
     /**
      * Do action
      *
+     * @param Request $request  Request
+     * @param string  $entityId Entity identifier
+     */
+    protected function doOneAction(
+        Request $request,
+        $entityId
+    )
+    {
+        // TODO: Implement doOneAction() method.
+    }
+
+    /**
+     * Do bulk action
+     *
+     * @param Request $request Request
+     */
+    protected function doBulkAction(Request $request)
+    {
+        // TODO: Implement doBulkAction() method.
+    }
+
+
+    /**
+     * Do action
+     *
      * @param Request $request Request
      * @param object $entity Valid entity instance
      *
      * @return array Response data
-     */
+     *
     protected function doOneAction(
         Request $request,
         $entity
@@ -56,7 +81,7 @@ class DeleteController extends AbstractApiController
      * @param Request $request Request
      *
      * @return array Response data
-     */
+     *
     protected function doBulkAction(Request $request)
     {
         $firstLetter = $this->getFirstLetterNamespace();
@@ -67,5 +92,5 @@ class DeleteController extends AbstractApiController
         $query->execute();
 
         return new JsonResponse([], 204);
-    }
+    }*/
 }
